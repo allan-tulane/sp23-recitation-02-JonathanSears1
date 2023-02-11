@@ -1,6 +1,6 @@
 # CMPS 2200  Recitation 02
 
-**Name (Team Member 1):**_________________________  
+**Name (Team Member 1):Jonathan Sears**  
 **Name (Team Member 2):**_________________________
 
 In this recitation, we will investigate recurrences. 
@@ -48,12 +48,27 @@ where $W(1) = 1$.
 
 - [ ] 4. (2 point) Now, derive the asymptotic behavior of $W(n)$ using $f(n) = 1$, $f(n) = \log n$ and $f(n) = n$. Then, generate actual values for $W(n)$ for your code and confirm that the trends match your derivations.
 
-**TODO: your answer goes here**
+**for a = 2 and b = 2,
+f(n) = 1 == O(n), f(n) = logn == O(nlogn), f(n) = n == O(n(logn)^2). 
+Actual values: f(n) = 1: 1023, f(n) = n: 9120, f(n)= n^2: 1990744**
 
 - [ ] 5. (4 points) Now that you have a nice way to empirically generate valuess of $W(n)$, we can look at the relationship between $a$, $b$, and $f(n)$. Suppose that $f(n) = n^c$. What is the asypmptotic behavior of $W(n)$ if $c < \log_b a$? What about $c > \log_b a$? And if they are equal? Modify `compare_work` to compare empirical values for different work functions (at several different values of $n$) to justify your answer. 
 
-**TODO: your answer goes here**
+**results (a = 8, b = 2), for W_1 f(n) = n^4, for W_2 f(n) = n^2: 
+|     n |          W_1 |          W_2 |
+|-------|--------------|--------------|
+|    10 |          918 |          576 |
+|    20 |         7360 |         4630 |
+|    50 |        63262 |        40072 |
+|   100 |       506192 |       320678 |
+|  1000 |    262038764 |    166170522 |
+|  5000 | 122489292044 |  77027942330 |
+| 10000 | 979914346356 | 616223548642 |
+
+w1 (c>log_b a) == O(n^3), w2 (c<lob_b a) == O(n^2logn)**
 
 - [ ] 6. (3 points) $W(n)$ is meant to represent the running time of some recursive algorithm. Suppose we always had $a$ processors available to us and we wanted to compute the span of the same algorithm. Implement the function `span_calc` to compute the empirical span, where the work of the algorithm is given by $W(n)$. Implement `test_compare_span` to create a new comparison function for comparing span functions. Derive the asymptotic expressions for the span of the recurrences you used in problem 4 above. Confirm that everything matches up as it should. 
 
-**TODO: your answer goes here**
+**S(n) of f(n) = 1 == O(log(n))
+S(n) of f(n) = log(n) == O(log(n))
+S(n) of f(n) = n == O(n)**
